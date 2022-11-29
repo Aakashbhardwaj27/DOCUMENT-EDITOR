@@ -16,7 +16,7 @@ export class Default extends React.Component<{}, {}> {
   onCreated(): void {
     let titleBarElement: HTMLElement = document.getElementById('default_title_bar') as HTMLElement;
     this.titleBar = new TitleBar(titleBarElement, this.container.documentEditor, true);
-    this.container.documentEditor.documentName = 'Getting Started';
+    this.container.documentEditor.documentName = 'TITLE';
     this.titleBar.updateDocumentTitle();
     //Sets the language id as EN_US (1033) for spellchecker and docker image includes this language dictionary by default.
     //The spellchecker ensures the document content against this language.
@@ -44,7 +44,7 @@ export class Default extends React.Component<{}, {}> {
     var windowWidth = window.innerWidth;
     //Reducing the size of title bar, to fit Document editor component in remaining height.
     var windowHeight = window.innerHeight - this.titleBar.getHeight();
-    this.container.resize(windowWidth, windowHeight);
+    this.container?.resize(windowWidth, windowHeight);
   }
 
   openTemplate(): void {
