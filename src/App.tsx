@@ -6,6 +6,7 @@ import {
 } from '@syncfusion/ej2-react-documenteditor';
 import { TitleBar } from './title-bar';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
+import DocuViewer from './docViewer'
 
 DocumentEditorContainerComponent.Inject(Toolbar);
 
@@ -25,7 +26,7 @@ export class Default extends React.Component<{}, {}> {
       if (!isNullOrUndefined(this.titleBar)) {
         this.titleBar.updateDocumentTitle();
       }
-      this.container.documentEditor.focusIn();
+      this.container?.documentEditor.focusIn();
     }
     setInterval(() => {
       this.updateDocumentEditorSize();
@@ -70,7 +71,8 @@ export class Default extends React.Component<{}, {}> {
     return (
       <div>
         <div id="default_title_bar" className="e-de-ctn-title"></div>
-        <DocumentEditorContainerComponent id="container" ref={(scope) => { this.container = scope; }} height={'590px'} serviceUrl={"http://localhost:6002/api/documenteditor/"} enableToolbar={true} enableSpellCheck={true} created={this.onCreated.bind(this)} />
+     
+        <DocumentEditorContainerComponent id="container" ref={(scope) => { this.container = scope; }} height={'590px'} serviceUrl={"https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"} enableToolbar={true} enableSpellCheck={true} created={this.onCreated.bind(this)} />
       </div>
     );
   }
